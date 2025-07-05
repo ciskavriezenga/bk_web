@@ -1,6 +1,7 @@
 {
   "name": "node-starter",
   "private": true,
+  "type": "module",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
