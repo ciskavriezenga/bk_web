@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Node Express</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Hallo</h1>
+  <div>
+    <textarea id="commentBox" placeholder="Deel iets..."></textarea>
+    <button onclick="sendComment()">Verstuur</button>
+  </div>
+  <p><strong>Aantal reacties:</strong> <span id="count">0</span></p>
+  <ul id="comments"></ul>
+
+  <!--
+    Script code for included in html for sake of simplicity.
+    Better to place it inside a js file and link this js file instead.
+  -->
+  <script>
+    async function loadData() {
+      const res = await fetch('/data');
+      const json = await res.json();
+
+      // log the response to the console
+      console.log(json);
+
+      document.getElementById('count').textContent = json.count;
+      document.getElementById('comments').innerHTML = json.comments.map(c => `<li>${c}</li>`).join('');
+    }
+
+    async function sendComment() {
+      const comment = document.getElementById('commentBox').value;
+      await fetch('/comment', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({comment})
+      });
+      document.getElementById('commentBox').value = '';
+      loadData();
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
