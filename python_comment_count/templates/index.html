@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Python Flask</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>Hi!</h1>
+  <div>
+    <textarea id="commentBox" placeholder="Share something ..."></textarea>
+    <button onclick="sendComment()">Commit</button>
+  </div>
+  <p><strong>Number of responses:</strong> <span id="count">0</span></p>
+  <ul id="comments"></ul>
+
+
+  <!--
+    Script code for included in html for sake of simplicity.
+    Better to place it inside a js file and refer to this file instead, e.g:
+    <script src="script.js"></script>
+  -->
+  <script>
+    async function loadData() {
+      const res = await fetch('/data');
+      const json = await res.json();
+      document.getElementById('count').textContent = json.count;
+      document.getElementById('comments').innerHTML = json.comments.map(c => `<li>${c}</li>`).join('');
+    }
+
+    async function sendComment() {
+      const comment = document.getElementById('commentBox').value;
+      await fetch('/comment', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({comment})
+      });
+      document.getElementById('commentBox').value = '';
+      loadData();
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
