@@ -10,10 +10,10 @@ async function incrementCount() {
                 'Content-Type': 'application/json',
             }
         });
-        
+
         const data = await response.json();
         countValue.textContent = data.count;
-        
+
     } catch (error) {
         console.error('Error:', error);
     }

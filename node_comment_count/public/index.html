@@ -5,17 +5,18 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <h1>Hallo</h1>
+  <h1>Hi!</h1>
   <div>
-    <textarea id="commentBox" placeholder="Deel iets..."></textarea>
-    <button onclick="sendComment()">Verstuur</button>
+    <textarea id="commentBox" placeholder="Share something ..."></textarea>
+    <button onclick="sendComment()">Commit</button>
   </div>
-  <p><strong>Aantal reacties:</strong> <span id="count">0</span></p>
+  <p><strong>Number of responses:</strong> <span id="count">0</span></p>
   <ul id="comments"></ul>
 
   <!--
     Script code for included in html for sake of simplicity.
-    Better to place it inside a js file and link this js file instead.
+    Better to place it inside a js file and refer to this file instead, e.g:
+    <script src="script.js"></script>
   -->
   <script>
     async function loadData() {

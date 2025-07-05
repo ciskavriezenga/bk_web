@@ -6,7 +6,7 @@ Node.js
 
 ## Install and run
 
-Intall npm --> different per environment, ask eachother / google.
+Intall npm --> different per environment, ask eachother / google. 
 
 Install npm packages
 ```bash
