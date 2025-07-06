@@ -1,21 +1,25 @@
 import express from 'express';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 // Counter variable (stored in memory)
 let count = 0;
 
 // Middleware
 app.use(express.json());
-app.use(express.static('public'));
 
-// Routes
-// GET route to serve the main page
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+/*
+ * by adding this line, the server serves static files,
+ * therefore index.html is typically served automatically
+ *
+ * Need to serve it manually, e.g. to do stuff when user loads index.html
+ * then see the express_count_manual_index example
+ *
+ */
+app.use(express.static('public'));
 
 // GET route to retrieve current count
 app.get('/api/count', (req, res) => {
