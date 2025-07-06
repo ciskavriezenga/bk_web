@@ -67,6 +67,6 @@ io.on('connection', (socket) => {
 
 // instead of express app.listen - we call listen on the http server
 server.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
   console.log(`Initial count: ${count}`);
 });

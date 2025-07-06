@@ -17,3 +17,8 @@ Run web app
 ```bash
 npm start
 ```
+
+Want to empty stored data? Run following line
+```bash
+cp data_empty_placeholder.json data.json
+```

@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const app = express();
-const PORT = 3001;
+const PORT = 3000;
 
 // Counter variable (stored in memory)
 let count = 0;
@@ -36,6 +36,6 @@ app.post('/api/increment', (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
   console.log(`Initial count: ${count}`);
 });

@@ -9,13 +9,15 @@ import os
 app = Flask(__name__, static_folder='../static', template_folder='../templates')
 CORS(app)
 
-DATA_FILE = 'data.json'
+DATA_FILE = 'backend/data.json'
 
 def read_count():
     """read count from JSON """
     if os.path.exists(DATA_FILE):
         with open(DATA_FILE, 'r') as f:
             data = json.load(f)
+            print("Reading data from:", os.path.abspath(DATA_FILE))
+            print("current count value: ", data.get('count', 0))
             return data.get('count', 0)
     return 0
 
@@ -46,4 +48,21 @@ def increment_count():
     return jsonify({'count': new_count})
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=3000, host="0.0.0.0")
+
+
+"""
+Flask defaults to host="127.0.0.1", which means:
+    It only listens on the loopback interface.
+    Only the machine itself (in this case, your NAS) can access it.
+    Requests from other devices (like your laptop using http://192.168.1.67:3000) are ignored.
+
+
+With
+    app.run(debug=True, port=3000, host="0.0.0.0")
+
+You're telling Flask to:
+    Bind the server to all available network interfaces.
+    Accept incoming connections from any IP (your local network included).
+    Allow access from other devices, like your Mac using http://192.168.1.67:3000.
+"""

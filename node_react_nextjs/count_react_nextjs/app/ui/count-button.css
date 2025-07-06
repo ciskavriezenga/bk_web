@@ -1,7 +1,0 @@
-.count-button {
-  @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors;
-}
-
-.count-button:disabled {
-  @apply bg-gray-400 cursor-not-allowed;
-}

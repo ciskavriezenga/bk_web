@@ -59,6 +59,6 @@ app.post('/api/increment', (req, res) => {
 
 // instead of express app.listen - we call listen on the http server
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
   console.log(`Initial count: ${count}`);
 });

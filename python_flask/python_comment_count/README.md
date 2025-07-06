@@ -4,12 +4,7 @@
 Python and Flask
 
 
-## Install and run
-
-Install Flask
-```bash
-pip install Flask
-```
+## Install and run LOCAL
 
 On Mac? And used homebrew to install Python?
 Option 1 - Use a virtual environment
@@ -45,10 +40,19 @@ source venv/bin/activate
 ```
 
 
+
+
+## Install and run ON THE NAS
+
 Info - On the NAS
 - pip is installed and can be run from terminal with ssh connection
 - Flask is already installed.
 
 ```bash
 python app.py
+```
+
+Want to empty stored data? Run following line
+```bash
+cp data_empty_placeholder.json data.json
 ```

@@ -10,7 +10,7 @@ Flask looks for HTML files in a folder called templates/ by default, and static 
 Thus, index.html is placed in templates, css and js in static.
 
 
-## Install and run
+## Install and run LOCAL
 
 Install Flask
 ```bash
@@ -55,11 +55,17 @@ deactivate
 source venv/bin/activate
 ```
 
+## Install and run ON THE NAS
 
 Info - On the NAS
 - pip is installed and can be run from terminal with ssh connection
 - Flask is already installed.
 
 ```bash
-python app.py
+python backend/app.py
+```
+
+Want to empty stored data? Run following line
+```bash
+cp backend/data_zero_placeholder.json backend/data.json
 ```

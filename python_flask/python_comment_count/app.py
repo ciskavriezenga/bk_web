@@ -36,3 +36,20 @@ def post_comment():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=3000, debug=True)
+
+
+"""
+Flask defaults to host="127.0.0.1", which means:
+    It only listens on the loopback interface.
+    Only the machine itself (in this case, your NAS) can access it.
+    Requests from other devices (like your laptop using http://192.168.1.67:3000) are ignored.
+
+
+With
+    app.run(debug=True, port=3000, host="0.0.0.0")
+
+You're telling Flask to:
+    Bind the server to all available network interfaces.
+    Accept incoming connections from any IP (your local network included).
+    Allow access from other devices, like your Mac using http://192.168.1.67:3000.
+"""
