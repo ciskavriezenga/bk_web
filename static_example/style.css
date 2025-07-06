@@ -1,0 +1,80 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    color: #222;
+}
+
+.week-title {
+  font-weight: 800;
+  font-size: 1rem;
+  color: #fa081a;
+}
+/* Flex container */
+.content-wrapper {
+    display: flex;
+    gap: 2rem;
+    align-items: stretch; /* gelijk in hoogte */
+}
+
+/* Linker kolom: tekst en knop */
+.left-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.left-content p {
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+}
+
+.left-content button {
+    width: fit-content;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    background-color: #e1212f;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.left-content button:hover {
+    background-color: #fa081a;
+}
+
+.italic {
+    font-style: italic;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Rechter kolom: afbeelding */
+.right-content {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start; /* aligns to top */
+}
+
+/* Image: max hoogte = hoogte van left-content container, max breedte om te voorkomen dat het te breed wordt */
+.right-content img {
+    max-height: 100%; /* vult containerhoogte */
+    max-width: 250px; /* voorkom dat het te breed wordt */
+    width: auto;
+    height: 60%;
+    display: block;
+    object-fit: contain;
+}
